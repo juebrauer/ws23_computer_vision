@@ -138,14 +138,14 @@ def train_model(model, device, num_epochs, train_loader, test_loader):
   
         print(f"Trainingsepoche #{epoch} / {num_epochs}:")
         print(f"\t Benötigte Dauer: {stop-start}")
-        print(f"\t acc={accuracy:.2f} %")
+        print(f"\t acc={acc:.2f} %")
 
-    import matplotlib.pyplot as plt
-    plt.plot(accs)
-    plt.xlabel("Epoche")
-    plt.ylabel("Genauigkeit auf Testdaten [%]")
-    plt.title("Lernkurve")
-    plt.show()
+        import matplotlib.pyplot as plt
+        plt.plot(accs)
+        plt.xlabel("Epoche")
+        plt.ylabel("Genauigkeit auf Testdaten [%]")
+        plt.title("Lernkurve")
+        plt.show()
 
     return accs
 
@@ -166,6 +166,8 @@ def test_model(model, test_loader, device):
             total += labels.shape[0]
 
     accuracy = (correct/total)*100.0
+
+    return accuracy
   
 
 
